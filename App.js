@@ -6,9 +6,27 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-
+			searchTerm:"",
+      searchUrl:""
 		}
+		this.handleChange.bind(this)
+    this.handleKeyUp.bind(this)
 	}
+
+	handleKeyUp = (event) => {
+    if(event.key === 'Enter' && this.state.searchTerm !== ""){
+      var searchUrl =  "search/multi?query=" + this.state.searchTerm + "&api_key=166624c030b91c943c397020f20525b4";
+      this.setState({
+        searchUrl: searchUrl
+      })
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
 
 	render() {
 		return(
@@ -17,12 +35,12 @@ export default class App extends Component {
           <Logo />
           <Navigation />
           <div id="search" className="Search">
-            <input placeholder="Search for a title..."/>
+            <input onChange={this.handleChange} onKeyUp={this.handleKeyUp} placeholder="Search for a title..."/>
           </div>
           <UserProfile />
         </header>
         <Hero />
-        <TitleList title="Search Results" />
+        <TitleList title="Search Results" url={this.state.searchUrl}/>
         <TitleList title="Top TV picks for Jack" />
         <TitleList title="Trending now" />
         <TitleList title="Most watched in Horror" />
@@ -72,7 +90,12 @@ class Hero extends Component {
         <div className="content">
           <img className="logo" src="http://www.returndates.com/backgrounds/narcos.logo.png" alt="narcos background"/>
           <h2>Season 2 now available</h2>
-          <p>The second season of Narcos, an American crime thriller drama web television series produced and created by Chris Brancato, Carlo Bernard, and Doug Miro, follows the story of notorious drug kingpin Pablo Escobar, who became a billionaire through the production and distribution of cocaine, while also focusing on Escobar's interactions with drug lords, DEA agents, and various opposition entities.</p>
+          <p>The second season of Narcos, an American crime thriller drama web television 
+          series produced and created by Chris Brancato, Carlo Bernard, 
+          and Doug Miro, follows the story of notorious drug kingpin Pablo 
+          Escobar, who became a billionaire through the production and distribution 
+          of cocaine, while also focusing on Escobar's interactions with drug lords, DEA 
+          agents, and various opposition entities.</p>
           <div className="button-wrapper">
             <HeroButton primary="true" text="Watch now"/>
             <HeroButton primary="false" text="+ My list"/>
