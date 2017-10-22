@@ -213,15 +213,14 @@ class Item extends Component {
 class ListToggle extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
-
+			toggled:false
 		}
 	}
 
 	render() {
 		return(
-			<div className="ListToggle">
+			<div className="ListToggle" data-toggled={this.state.toggled}>
         <div>
           <i className="fa fa-fw fa-plus"></i>
           <i className="fa fa-fw fa-check"></i>
