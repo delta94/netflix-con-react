@@ -159,6 +159,29 @@ class TitleList extends Component {
   }
 
 	render() {
+		 let titles = '';
+    if(this.state.data.results){
+      titles = this.state.data.results.map((title, i) => {
+        if(i < 5){
+          var name = '';
+          var backDrop = 'http://image.tmdb.org/t/p/original' + title.backdrop_path;
+          if(!title.name) {
+            name = title.original_title;
+          } else {
+            name = title.name;
+          }
+
+          return (
+            <Item key={title.id} title={name} score={title.vote_average} overview={title.overview} backdrop={backDrop}/>
+          )
+        } else {
+          return (
+            <div key={title.id}></div>
+          )
+        }
+      })
+    }
+    
 		return(
 			<div ref="titlecategory" className="TitleList" >
         <div className="Title">
