@@ -149,6 +149,15 @@ class TitleList extends Component {
     }
   }
 
+  componentDidMount(){
+    if(this.props.url !== '') {
+      this.loadContent();
+      this.setState({
+        mounted:true
+      })
+    }
+  }
+
 	render() {
 		return(
 			<div ref="titlecategory" className="TitleList" >
