@@ -125,6 +125,30 @@ class TitleList extends Component {
 		}
 	}
 
+	loadContent = () => {
+    var requestUrl ='https://api.themoviedb.org/3/' + this.props.url + '&api_key=166624c030b91c943c397020f20525b4';
+    fetch(requestUrl).then((response) => {
+      return response.json();
+    }).then((data) => {
+      this.setState(
+        data: data
+      })
+    }).catch((err) => {
+        console.log("There has been error");
+      })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.url !== this.props.url && nextProps.url !== ''){
+      this.setState({
+        url: nextProps.url,
+        mounted: true
+      }, function () {
+        this.loadContent();
+      })   
+    }
+  }
+
 	render() {
 		return(
 			<div ref="titlecategory" className="TitleList" >
