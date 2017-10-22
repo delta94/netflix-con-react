@@ -35,17 +35,17 @@ export default class App extends Component {
           <Logo />
           <Navigation />
           <div id="search" className="Search">
-            <input onChange={this.handleChange} onKeyUp={this.handleKeyUp} placeholder="Search for a title..."/>
+            <input onChange={this.handleChange} onKeyUp={this.handleKeyUp} value={this.state.searchTerm} placeholder="Search for a title..."/>
           </div>
           <UserProfile />
         </header>
         <Hero />
         <TitleList title="Search Results" url={this.state.searchUrl}/>
-        <TitleList title="Top TV picks for Jack" />
-        <TitleList title="Trending now" />
-        <TitleList title="Most watched in Horror" />
-        <TitleList title="Sci-Fi greats" />
-        <TitleList title="Comedy magic" />
+        <TitleList title="Top TV picks for Jack" url='discover/tv?sort_by=popularity.desc&page=1'/>
+        <TitleList title="Trending now" url='discover/movie?sort_by=popularity.desc&page=1'/>
+        <TitleList title="Most watched in Horror" url='genre/27/movies?sort_by=popularity.desc&page=1'/>
+        <TitleList title="Sci-Fi greats" url='genre/878/movies?sort_by=popularity.desc&page=1'/>
+        <TitleList title="Comedy magic" url='genre/35/movies?sort_by=popularity.desc&page=1'/>
       </div>
 		)
 	}
@@ -183,7 +183,7 @@ class TitleList extends Component {
     }
 
 		return(
-			<div ref="titlecategory" className="TitleList" >
+			<div ref="titlecategory" className="TitleList" data-loaded={this.state.mounted}>
         <div className="Title">
           <h1>{this.props.title}</h1>
           <div className="titles-wrapper">
@@ -263,4 +263,3 @@ class Logo extends Component {
 		)
 	}
 }
-
