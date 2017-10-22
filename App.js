@@ -130,7 +130,7 @@ class TitleList extends Component {
     fetch(requestUrl).then((response) => {
       return response.json();
     }).then((data) => {
-      this.setState(
+      this.setState({
         data: data
       })
     }).catch((err) => {
@@ -181,13 +181,13 @@ class TitleList extends Component {
         }
       })
     }
-    
+
 		return(
 			<div ref="titlecategory" className="TitleList" >
         <div className="Title">
-          <h1>"title"</h1>
+          <h1>{this.props.title}</h1>
           <div className="titles-wrapper">
-            "titles"
+            {titles}
           </div>
         </div>
       </div>
@@ -198,11 +198,11 @@ class TitleList extends Component {
 class Item extends Component {
 	render() {
 		return(
-			<div className="Item" >
+			<div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}}>
         <div className="overlay">
-          <div className="title">"movie title"</div>
-          <div className="rating">"score"</div>
-          <div className="plot">"overwiev"</div>
+          <div className="title">{this.props.title}</div>
+          <div className="rating">{this.props.score} / 10</div>
+          <div className="plot">{this.props.overview}</div>
           <ListToggle />
         </div>
       </div>
