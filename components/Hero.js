@@ -5,7 +5,7 @@ import HeroButton from "./HeroButton.js"
 export default class Hero extends Component {
 	render() {
 		return(
-			<div id="hero"  className="Hero" style={{backgroundImage: 'url(https://images.alphacoders.com/633/633643.jpg)', backgroundPosition: "-200px 0px"}}>
+			<div id="hero"  className="Hero" style={{backgroundImage: 'url(https://images.alphacoders.com/633/633643.jpg)'}}>
         <div className="content">
           <img className="logo" src="http://www.returndates.com/backgrounds/narcos.logo.png" alt="narcos background"/>
           <h2>Season 2 now available</h2>
