@@ -120,7 +120,8 @@ class TitleList extends Component {
 		super(props);
 
 		this.state = {
-
+      data: [],
+      mounted: false
 		}
 	}
 
