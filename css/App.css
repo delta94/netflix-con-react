@@ -241,6 +241,7 @@ p {
   background-size: cover;
   min-height: 800px;
 }
+
 .Hero .content {
   position: relative;
   z-index: 4;
