@@ -72,7 +72,7 @@ class Hero extends Component {
         <div className="content">
           <img className="logo" src="http://www.returndates.com/backgrounds/narcos.logo.png" alt="narcos background"/>
           <h2>Season 2 now available</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque id quam sapiente unde voluptatum alias vero debitis, magnam quis quod.</p>
+          <p>The second season of Narcos, an American crime thriller drama web television series produced and created by Chris Brancato, Carlo Bernard, and Doug Miro, follows the story of notorious drug kingpin Pablo Escobar, who became a billionaire through the production and distribution of cocaine, while also focusing on Escobar's interactions with drug lords, DEA agents, and various opposition entities.</p>
           <div className="button-wrapper">
             <HeroButton primary="true" text="Watch now"/>
             <HeroButton primary="false" text="+ My list"/>
